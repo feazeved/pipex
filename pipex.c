@@ -52,8 +52,8 @@ void	ft_exec_cmd(t_pipex *pipex)
 	if (id1 == 0)
 	{
 		dup2(pipex->fd_in, 0);
-		dup2(pipex->fd_out, pipe_fd[0]);
-		close(pipe_fd[1]);
+		dup2(pipe_fd[1], 1);
+		close(pipe_fd[0]);
 		execve(pipex->path_cmd1, pipex->args_cmd1, pipex->envp);
 		perror("execve");
 		ft_error(pipex, 1);
@@ -66,9 +66,9 @@ void	ft_exec_cmd(t_pipex *pipex)
 	}
 	if (id2 == 0)
 	{
-		dup2(pipex->fd_out, 1);
 		dup2(pipe_fd[0], 0);
-		close(pipe_fd[0]);
+		dup2(pipex->fd_out, 1);
+		close(pipe_fd[1]);
 		execve(pipex->path_cmd2, pipex->args_cmd2, pipex->envp);
 		perror("execve");
 		ft_error(pipex, 1);
@@ -86,7 +86,7 @@ char	*ft_find_cmd(char *cmd, t_pipex *pipex)
 	int		i;
 
 	if (access(cmd, X_OK) == 0)
-		return (cmd);
+		return (ft_strdup(cmd));
 	i = 0;
 	while (pipex->paths[i])
 	{
@@ -163,6 +163,13 @@ t_pipex	*ft_init_pipex(char **argv)
 		perror("malloc");
 		exit(EXIT_FAILURE);
 	}
+  pipex->fd_in = -1;
+  pipex->fd_out = -1;
+  pipex->paths = NULL;
+  pipex->args_cmd1 = NULL;
+  pipex->args_cmd2 = NULL;
+  pipex->path_cmd1 = NULL;
+  pipex->path_cmd2 = NULL;
 	pipex->fd_in = open(argv[1], O_RDONLY);
 	if (pipex->fd_in == -1)
 	{
@@ -175,7 +182,6 @@ t_pipex	*ft_init_pipex(char **argv)
 		perror("open");
 		ft_error(pipex, 1);
 	}
-	pipex->paths = NULL;
 	return (pipex);
 }
 
@@ -183,9 +189,9 @@ void	ft_error(t_pipex *pipex, int check)
 {
 	int	i;
 
-	if (pipex->fd_in >= 0)
+	if (pipex->fd_in != -1)
 		close(pipex->fd_in);
-	if (pipex->fd_out >= 0)
+	if (pipex->fd_out != -1)
 		close(pipex->fd_out);
 	i = 0;
 	while (pipex->paths && pipex->paths[i])
@@ -193,12 +199,12 @@ void	ft_error(t_pipex *pipex, int check)
 	free(pipex->paths);
 	i = 0;
 	while (pipex->args_cmd1 && pipex->args_cmd1[i])
-		free(args_cmd1[i++]);
+		free(pipex->args_cmd1[i++]);
 	free(pipex->args_cmd1);
 	i = 0;
 	while (pipex->args_cmd2 && pipex->args_cmd2[i])
-		free(args_cmd2[i]);
-	free(args_cmd2[i]);
+		free(pipex->args_cmd2[i++]);
+	free(pipex->args_cmd2);
 	free(pipex);
 	if (check)
 		exit(EXIT_FAILURE);

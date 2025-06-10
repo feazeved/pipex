@@ -46,5 +46,6 @@ char	*ft_find_cmd(char *cmd, t_pipex *pipex);
 void	ft_parsing(t_pipex *pipex);
 char	*ft_strjoin(char *s1, char *s2, t_pipex *pipex);
 int	ft_strlen(char *s1);
+char  *ft_strdup(char *str);
 
 #endif
