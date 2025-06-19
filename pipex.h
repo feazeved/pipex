@@ -22,16 +22,19 @@
 
 typedef struct s_pipex
 {
+  int   argc;
 	char	**argv;
 	char	**envp;
-	int		fd_in;
-	int		fd_out;
-	int		pipes_fd[2];
+	int		infile;
+	int		outfile;
+	int		here_doc;
+  char  *limiter;
+  int   cmd_num;
+  int   **pipes;
+  pid_t *pids;
 	char	**paths;
-	char	**args_cmd1;
-	char	**args_cmd2;
-	char	*path_cmd1;
-	char	*path_cmd2;
+  char  ***cmd_args;
+  char  **cmd_paths;
 }	t_pipex;
 
 void	ft_error(t_pipex *pipex, int check);
