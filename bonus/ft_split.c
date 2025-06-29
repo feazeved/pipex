@@ -6,13 +6,13 @@
 /*   By: feazeved <feazeved@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 00:59:07 by feazeved          #+#    #+#             */
-/*   Updated: 2025/06/08 23:49:55 by feazeved         ###   ########.fr       */
+/*   Updated: 2025/06/27 19:10:32 by feazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-static int	ft_countwords(char const *str, char c)
+static int	ft_split_countwords(char const *str, char c)
 {
 	int	counter;
 	int	i;
@@ -80,7 +80,7 @@ char	**ft_split(const char *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	words = ft_countwords(s, c);
+	words = ft_split_countwords(s, c);
 	array = ft_calloc((words + 1), sizeof(char *));
 	if (!array)
 		return (NULL);
@@ -98,17 +98,3 @@ char	**ft_split(const char *s, char c)
 	}
 	return (array);
 }
-/*
-int	main(void)
-{
-	int	i = 0;
-	char	**array = ft_split(",,,,ar,ara,arara,ar,ara,,arara,,,,", '\0');
-	while (array[i])
-	{
-		printf("%s\n", array[i]);
-		i++;
-	}
-	i = 0;
-	ft_free_array(array);
-	return (0);
-}*/

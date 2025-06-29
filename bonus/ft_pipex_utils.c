@@ -6,11 +6,11 @@
 /*   By: feazeved <feazeved@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 21:24:47 by feazeved          #+#    #+#             */
-/*   Updated: 2025/06/09 23:45:17 by feazeved         ###   ########.fr       */
+/*   Updated: 2025/06/29 13:47:45 by feazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 int	ft_strncmp(char *s1, char *s2, int n)
 {
@@ -60,48 +60,39 @@ int	ft_strlen(char *s1)
 		i++;
 	return (i);
 }
-	
-char	*ft_strjoin(char *s1, char *s2, t_pipex *pipex)
-{
-	char	*join;
-	int		i;
-	int		j;
 
-	join = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!join)
-	{
-		perror("Error when allocating memory");
-		ft_error(pipex, 1);
+char	*ft_strdup(char *str)
+{
+	char	*new;
+	int		i;
+
+	new = malloc(ft_strlen(str) + 1);
+	if (!new)
 		return (NULL);
-	}
 	i = 0;
-	j = 0;
-	while (s1[i])
+	while (str[i])
 	{
-		join[i] = s1[i];
+		new[i] = str[i];
 		i++;
 	}
-	while (s2[j])
-		join[i++] = s2[j++];
-	join[i] = '\0';
-	return (join);
+	new[i] = '\0';
+	return (new);
 }
 
-char  *ft_strdup(char *str)
+char	*ft_strchr(char *str, char to_look)
 {
-  char  *new;
-  int   i;
+	int	i;
 
-
-  new = malloc(ft_strlen(str) + 1);
-  if (!new)
-    return (NULL);
-  i = 0;
-  while (str[i])
-  {
-    new[i] = str[i];
-    i++;
-  }
-  new[i] = '\0';
-  return (new);
+	i = 0;
+	if (!str)
+		return (NULL);
+	if (!to_look)
+		return (&str[ft_strlen(str)]);
+	while (str[i])
+	{
+		if (str[i] == to_look)
+			return (&str[i]);
+		i++;
+	}
+	return (NULL);
 }

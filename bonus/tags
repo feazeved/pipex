@@ -1,0 +1,64 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/feazeved/Projects/pipex/bonus/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+BUFFER_SIZE	pipex_bonus.h	/^# define BUFFER_SIZE /;"	d
+PIPEX_BONUS_H	pipex_bonus.h	/^# define PIPEX_BONUS_H$/;"	d
+argc	pipex_bonus.h	/^	int		argc;$/;"	m	struct:s_pipex	typeref:typename:int
+argv	pipex_bonus.h	/^	char	**argv;$/;"	m	struct:s_pipex	typeref:typename:char **
+cmd_num	pipex_bonus.h	/^	int		cmd_num;$/;"	m	struct:s_pipex	typeref:typename:int
+envp	pipex_bonus.h	/^	char	**envp;$/;"	m	struct:s_pipex	typeref:typename:char **
+ft_absolute_path	ft_pipex_unique_utils.c	/^char	*ft_absolute_path(t_pipex *pipex, char **cmd)$/;"	f	typeref:typename:char *
+ft_alloc_pipes	ft_parsing.c	/^void	ft_alloc_pipes(t_pipex *pipex)$/;"	f	typeref:typename:void
+ft_calloc	ft_pipex_utils.c	/^void	*ft_calloc(size_t nmemb, size_t size)$/;"	f	typeref:typename:void *
+ft_child_error_exit	ft_cleaning.c	/^void	ft_child_error_exit(char *func, char *msg, char **to_free, int status)$/;"	f	typeref:typename:void
+ft_clean_buffer	ft_gnl.c	/^int	ft_clean_buffer(char *buffer)$/;"	f	typeref:typename:int
+ft_close_pipes	ft_cleaning.c	/^void	ft_close_pipes(t_pipex *pipex, int limiter)$/;"	f	typeref:typename:void
+ft_countwords	ft_pipex_unique_utils.c	/^int	ft_countwords(char *str, char c)$/;"	f	typeref:typename:int
+ft_error_exit	ft_cleaning.c	/^void	ft_error_exit(t_pipex *pipex, char *func, char *msg, int status)$/;"	f	typeref:typename:void
+ft_exec	pipex_bonus.c	/^void	ft_exec(t_pipex *pipex)$/;"	f	typeref:typename:void
+ft_exec_child	ft_child.c	/^void	ft_exec_child(t_pipex *pipex, int i)$/;"	f	typeref:typename:void
+ft_find_path	ft_child.c	/^char	*ft_find_path(char **envp)$/;"	f	typeref:typename:char *
+ft_free	ft_cleaning.c	/^void	ft_free(t_pipex *pipex)$/;"	f	typeref:typename:void
+ft_free_array	ft_split.c	/^static void	ft_free_array(char **array)$/;"	f	typeref:typename:void	file:
+ft_free_strs	ft_cleaning.c	/^void	ft_free_strs(char **strs)$/;"	f	typeref:typename:void
+ft_get_cmd_path	ft_child.c	/^char	*ft_get_cmd_path(t_pipex *pipex, char **cmd)$/;"	f	typeref:typename:char *
+ft_get_full_path	ft_child.c	/^char	*ft_get_full_path(t_pipex *pipex, char **paths, char **cmd)$/;"	f	typeref:typename:char *
+ft_here_doc	pipex_bonus.c	/^void	ft_here_doc(t_pipex *pipex)$/;"	f	typeref:typename:void
+ft_init_pipex	ft_parsing.c	/^t_pipex	*ft_init_pipex(int argc, char **argv, char **envp)$/;"	f	typeref:typename:t_pipex *
+ft_initializer	ft_gnl.c	/^void	ft_initializer(char **line, int *br, int *num_read)$/;"	f	typeref:typename:void
+ft_open_pipex	ft_parsing.c	/^int	ft_open_pipex(t_pipex *pipex, int infile)$/;"	f	typeref:typename:int
+ft_pids_calloc	ft_parsing.c	/^pid_t	*ft_pids_calloc(size_t nmemb, size_t size, t_pipex *pipex)$/;"	f	typeref:typename:pid_t *
+ft_pipex_calloc	ft_parsing.c	/^t_pipex	*ft_pipex_calloc(size_t nmemb, size_t size)$/;"	f	typeref:typename:t_pipex *
+ft_pipex_dup_in	ft_pipex_unique_utils.c	/^void	ft_pipex_dup_in(t_pipex *pipex, int i)$/;"	f	typeref:typename:void
+ft_pipex_dup_out	ft_pipex_unique_utils.c	/^void	ft_pipex_dup_out(t_pipex *pipex, int i)$/;"	f	typeref:typename:void
+ft_prep_cmd	ft_child.c	/^void	ft_prep_cmd(t_pipex *pipex, int i, char ***cmd_args, char **cmd_path)$/;"	f	typeref:typename:void
+ft_sep_strcpy	ft_split.c	/^static char	*ft_sep_strcpy(const char *src, char sep)$/;"	f	typeref:typename:char *	file:
+ft_sep_strlen	ft_split.c	/^static int	ft_sep_strlen(const char *str, char sep)$/;"	f	typeref:typename:int	file:
+ft_split	ft_split.c	/^char	**ft_split(const char *s, char c)$/;"	f	typeref:typename:char **
+ft_split_countwords	ft_split.c	/^static int	ft_split_countwords(char const *str, char c)$/;"	f	typeref:typename:int	file:
+ft_str_join_and_free	ft_gnl.c	/^char	*ft_str_join_and_free(char *old, char *buffer, t_pipex *pipex)$/;"	f	typeref:typename:char *
+ft_strchr	ft_pipex_utils.c	/^char	*ft_strchr(char *str, char to_look)$/;"	f	typeref:typename:char *
+ft_strdup	ft_pipex_utils.c	/^char	*ft_strdup(char *str)$/;"	f	typeref:typename:char *
+ft_strjoinjoin	ft_pipex_unique_utils.c	/^char	*ft_strjoinjoin(char *str1, char *str2, char *str3)$/;"	f	typeref:typename:char *
+ft_strlen	ft_pipex_utils.c	/^int	ft_strlen(char *s1)$/;"	f	typeref:typename:int
+ft_strlen_line	ft_gnl.c	/^int	ft_strlen_line(char *str)$/;"	f	typeref:typename:int
+ft_strncmp	ft_pipex_utils.c	/^int	ft_strncmp(char *s1, char *s2, int n)$/;"	f	typeref:typename:int
+ft_wait_children	pipex_bonus.c	/^int	ft_wait_children(t_pipex *pipex)$/;"	f	typeref:typename:int
+get_next_line	ft_gnl.c	/^char	*get_next_line(int fd, t_pipex *pipex)$/;"	f	typeref:typename:char *
+here_doc	pipex_bonus.h	/^	int		here_doc;$/;"	m	struct:s_pipex	typeref:typename:int
+infile	pipex_bonus.h	/^	int		infile;$/;"	m	struct:s_pipex	typeref:typename:int
+limiter	pipex_bonus.h	/^	char	*limiter;$/;"	m	struct:s_pipex	typeref:typename:char *
+main	pipex_bonus.c	/^int	main(int argc, char *argv[], char **envp)$/;"	f	typeref:typename:int
+outfile	pipex_bonus.h	/^	int		outfile;$/;"	m	struct:s_pipex	typeref:typename:int
+pids	pipex_bonus.h	/^	pid_t	*pids;$/;"	m	struct:s_pipex	typeref:typename:pid_t *
+pipes	pipex_bonus.h	/^	int		**pipes;$/;"	m	struct:s_pipex	typeref:typename:int **
+s_pipex	pipex_bonus.h	/^typedef struct s_pipex$/;"	s
+t_pipex	pipex_bonus.h	/^}	t_pipex;$/;"	t	typeref:struct:s_pipex
