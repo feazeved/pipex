@@ -6,11 +6,11 @@
 /*   By: feazeved <feazeved@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 00:39:19 by feazeved          #+#    #+#             */
-/*   Updated: 2025/06/30 23:33:38 by feazeved         ###   ########.fr       */
+/*   Updated: 2025/07/02 19:52:45 by feazeved         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex_bonus.h"
+#include "pipex.h"
 
 void	ft_exec_child(t_pipex *pipex, int i)
 {
@@ -31,7 +31,7 @@ void	ft_prep_cmd(t_pipex *pipex, int i, char ***cmd_args, char **cmd_path)
 {
 	char	*cmd_str;
 
-	cmd_str = pipex->argv[i + 2 + pipex->here_doc];
+	cmd_str = pipex->argv[i + 2];
 	if (!ft_countwords(cmd_str, ' '))
 	{
 		ft_free(pipex);

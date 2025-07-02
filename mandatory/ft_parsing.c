@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex_bonus.h"
+#include "pipex.h"
 
 t_pipex	*ft_init_pipex(int argc, char **argv, char **envp)
 {
@@ -23,15 +23,10 @@ t_pipex	*ft_init_pipex(int argc, char **argv, char **envp)
 	pipex->argc = argc;
 	pipex->argv = argv;
 	pipex->envp = envp;
-	pipex->here_doc = (ft_strncmp(argv[1], "here_doc", 8) == 0);
-	pipex->limiter = argv[2];
-	pipex->cmd_num = argc - 3 - pipex->here_doc;
+	pipex->cmd_num = argc - 3;
 	pipex->infile = -1;
 	pipex->outfile = -1;
-	if (pipex->here_doc)
-		ft_here_doc(pipex);
-	else
-		pipex->infile = ft_open_pipex(pipex, 1);
+	pipex->infile = ft_open_pipex(pipex, 1);
 	pipex->outfile = ft_open_pipex(pipex, 0);
 	pipex->pids = ft_pids_calloc(pipex->cmd_num, sizeof(pid_t), pipex);
 	ft_alloc_pipes(pipex);
@@ -83,10 +78,7 @@ int	ft_open_pipex(t_pipex *pipex, int infile)
 	}
 	else
 	{
-		if (pipex->here_doc)
-			flags = O_WRONLY | O_CREAT | O_APPEND;
-		else
-			flags = O_WRONLY | O_CREAT | O_TRUNC;
+		flags = O_WRONLY | O_CREAT | O_TRUNC;
 		fd = open(pipex->argv[pipex->argc - 1], flags, 0644);
 		if (fd == -1)
 			perror(pipex->argv[pipex->argc - 1]);
